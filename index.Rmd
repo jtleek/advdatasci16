@@ -2,12 +2,13 @@
 output:
   html_document:
     theme: cosmo
-    toc_depth: 3
+    toc: true
+    toc_depth: 2
     toc_float:
       collapsed: false
 ---
 
-# Advanced data science
+# Advanced Data Science
 
 ## Instructors
 
@@ -25,13 +26,13 @@ output:
 
 ## Resources/Books
 
-* [Elements of Data Analytic Style]
+* [Elements of Data Analytic Style](https://leanpub.com/datastyle)
 * [R programming]
-* [R for data science]
+* [R for Data Science](https://leanpub.com/rprogramming)
 * [Machine learning book]
 * [Rstudio's cheatsheets](http://www.rstudio.com/resources/cheatsheets/)
-* [swirl]
-* [Datacamp]
+* [swirl](http://swirlstats.com/)
+* [DataCamp](https://www.datacamp.com/)
 
 
 ## Course Description
@@ -79,7 +80,7 @@ Keep in mind that this is a data science class In some cases standard methodolog
 
 ## swirl modules
 
-For introducing tools and packages we will be using swirl modules to teach about concrete tools or packages. Each swirl module is required and should be completed before class on the day that it is assigned. You get 100% if you complete the module before class and 0% if you have not completed the module. 
+For introducing tools and packages we will be using swirl courses to teach about concrete tools or packages. Each swirl course is required and should be completed before class on the day that it is assigned. You get 100% if you complete the module before class and 0% if you have not completed the module. 
 
 You can install swirl with the command:
 
@@ -90,12 +91,9 @@ install.packages('swirl')
 You can install the course swirl modules with the commands:
 
 ```{r, eval = FALSE, echo = TRUE}
-install.packages('swirl')
+library(swirl)
+install_course_github("seankross", "AdvDataSci_Part_1")
 ```
-
-
-
-
 
 ## Course Materials
 
