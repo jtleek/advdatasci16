@@ -1,6 +1,6 @@
 ## Advanced Data Science
 
-* Repo: http://jtleek.com/advdatasci16
+* Repo: https://github.com/jtleek/advdatasci16
 * Course: www.jtleek.com/advdatasci16
 
 #### Build:
