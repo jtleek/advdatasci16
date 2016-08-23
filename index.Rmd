@@ -128,7 +128,7 @@ To keep you on track, starting in the 2nd week you will bring your current write
 
 Lab attendance and participation are mandatory. This is where you will learn how to write up and perform a data analysis. It is also the best way to get "hands dirty" with the projects people are working on. 
 
-### swirl modules
+## swirl modules
 
 For introducing tools and packages we will be using swirl courses to teach about concrete tools or packages. Each swirl course is required and should be completed before class on the day that it is assigned. You get 100% if you complete the module before class and 0% if you have not completed the module. 
 
@@ -140,9 +140,6 @@ install.packages("devtools")
 devtools::install_github("muschellij2/swirl", ref = "dev")
 ```
 
-<<<<<<< HEAD
-You can install the pre-course swirl module with the command:
-=======
 ### Set up your Rprofile
 
 In order to track your progress in `swirl`, you need to create a directory.  For example, `~/swirl_classes`.  Then you must add these 2 lines to `~/.Rprofile` (if that file does not exist, you must create it):
@@ -165,28 +162,24 @@ getOption("swirl_user")
 ### Install swirl courses
 
 You can install the course swirl modules with the commands:
->>>>>>> 3ddda5250023e90360082cdd5a0ea187181bc021
 
 ```{r, eval = FALSE, echo = TRUE}
 library(swirl)
 install_from_swirl("R_Programming")
 
 install_course_github("seankross", "AdvDataSci_Part_1")
-```
+# Week 1
+install_from_swirl("Getting_and_Cleaning_Data")
 
-Throughout the rest of the course we will be using the modules in the swirl course specifically designed for this class. At the end of class we will point to the module you need to install and you will have until the next class period to go through the swirl module. 
-
-```{r, eval = FALSE, echo = TRUE}
-library(swirl)
-install_course_github("jtleek", "advdatasci_swirl")
 ```
 
 ## Course Materials
 
-| week/lecture  | lecture | swirl assignment |
-|:------------|:------------|:------------|
-| 0/1 | [Welcome]() | |
-|---|---|---|
+| Week/Lecture  | Lecture  |  Video | Notes | Code | Assignment |
+|:------------|:------------|:------------|:------------|:------------|:------------|
+| 0/1 | Welcome | | [Google Slides](https://docs.google.com/presentation/d/1M64qJM4nWCGSqfoIvFOYTmef7R38qz9XrWvS09qHowQ/edit?usp=sharing) [pdf](lecture_notes/00_01_Welcome.pdf)|   |
+| 0/2 | Version Control and Organization| | [GitHub](http://github.com)| | Install git, create GitHub account |
+| 0/3 | R markdown | | [html](http://jtleek.com/genstats/inst/doc/01_04_rmarkdown.html) | [R markdown](https://github.com/jtleek/genstats/blob/gh-pages/inst/doc/01_04_rmarkdown.Rmd) [R code](https://github.com/jtleek/genstats/blob/gh-pages/inst/doc/01_04_rmarkdown.R)| Make git repo, create Rmarkdown, commit/push, change Rmarkdown,  commit/push  |
 
 
 
