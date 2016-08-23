@@ -7,5 +7,5 @@
 
 ```r
 library(rmarkdown)
-render("index.html")
+render("index.Rmd")
 ```

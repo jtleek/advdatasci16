@@ -100,6 +100,8 @@ install_course_github("seankross", "AdvDataSci_Part_1")
 | Week/Lecture  | Lecture  |  Video | Notes | Code |
 |:------------|:------------|:------------|:------------|:------------|
 | 0/1 | Welcome | | [Google Slides](https://docs.google.com/presentation/d/1M64qJM4nWCGSqfoIvFOYTmef7R38qz9XrWvS09qHowQ/edit?usp=sharing) [pdf](lecture_notes/00_01_Welcome.pdf)|   |
+| 0/2 | Version Control and Organization| | [GitHub](http://github.com)| |
+| 0/3 | R markdown | | [html](http://jtleek.com/genstats/inst/doc/01_04_rmarkdown.html) | [R markdown](https://github.com/jtleek/genstats/blob/gh-pages/inst/doc/01_04_rmarkdown.Rmd) [R code](https://github.com/jtleek/genstats/blob/gh-pages/inst/doc/01_04_rmarkdown.R)|
 | 0/2 | What is statistics? | | [Google Slides](https://docs.google.com/presentation/d/1Ct_5FOgfRPIxu2apxDBQBvuMHznsPZcykllQMjvcx0A/edit?usp=sharing) [pdf](lecture_notes/00_02_What is statistics-.pdf)|   |
 | 0/3 | Finding statistics you can trust | | [Google Slides](https://docs.google.com/presentation/d/17UfZTqLkrzNDcHutbZLbRurK-rQTU7rljr2ih8eBpoI/edit?usp=sharing) [pdf](lecture_notes/00_03_Finding_Statistics_You_Can_Trust.pdf)|   |
 | 0/4 | Getting help | | [Google Slides](https://docs.google.com/presentation/d/1wPwjXKsFct3tr20fzWCnE32kCRriieeV7HrcY7kQrtw/edit?usp=sharing) [pdf](lecture_notes/00_04_Getting_Help.pdf)|  |
@@ -109,7 +111,6 @@ install_course_github("seankross", "AdvDataSci_Part_1")
 | 1/1 | Week 1 Introduction | | [Google Slides](https://docs.google.com/presentation/d/1sWtpWd-BvWVDIUlk0McCIqHfPVNG_3J-Ybef71PmGec/edit?usp=sharing) [pdf](lecture_notes/01_01_Week1_Introduction.pdf) |   |
 | 1/2 | Reproducible research | | [Google Slides](https://docs.google.com/presentation/d/12eQmdZMaqc0yXB3ReQHqPQykkCbHmrJzLfRHC9Exs1U/edit?usp=sharing) [pdf](lecture_notes/01_02_Reproducible_Research.pdf) | |
 | 1/3 | Achieving reproducible research | | [Google Slides](https://docs.google.com/presentation/d/1CMFy_zJIG0tpBjBB-LHWELGZixrH5G2AwNCmQsX7_Co/edit?usp=sharing) [pdf](lecture_notes/01_03_Achieving_Reproducibility.pdf) | NA|
-| 1/4 | R markdown | | [html](http://jtleek.com/genstats/inst/doc/01_04_rmarkdown.html) | [R markdown](https://github.com/jtleek/genstats/blob/gh-pages/inst/doc/01_04_rmarkdown.Rmd) [R code](https://github.com/jtleek/genstats/blob/gh-pages/inst/doc/01_04_rmarkdown.R)|
 | 1/5 | The three tables in genomics || [Google Slides](https://docs.google.com/presentation/d/1w8Gxgt8CgslUQWtK3JmVQlTA-2MtZm61uKhhvQmFpXw/edit?usp=sharing) [pdf](lecture_notes/01_05_The_Three_Tables.pdf) | |
 | 1/6 | The three tables in genomics (in R) || [html](http://jtleek.com/genstats/inst/doc/01_06_three-tables.html) | [R markdown](https://github.com/jtleek/genstats/blob/gh-pages/inst/doc/01_06_three-tables.Rmd) [R code](https://github.com/jtleek/genstats/blob/gh-pages/inst/doc/01_06_three-tables.R)|
 | 1/7 | Experimental Design: variability, replication, and power || [Google Slides](https://docs.google.com/presentation/d/1tOuTVvnIpNm_QaEpaFBvD04z2y06sFqFWBqwO6GfJes/edit?usp=sharing) [pdf](lecture_notes/01_07_Experimental_Design_Variability_Replication_and_Power.pdf) | NA | 
