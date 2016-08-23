@@ -68,7 +68,8 @@ If you are getting a grade below a C it is because you basically aren't trying/w
 
 The percentages will be assigned in the following way: 
 
-* Completing swirl modules - 50% 
+* Pre-class swirl module - 5%
+* Completing swirl modules - 45% 
 * Preparedness/attendance at labs - 25%
 * Final project - 25% 
 
@@ -97,27 +98,33 @@ Keep in mind that this is a data science class. In some cases standard methodolo
 
 ### Data analysis project options
 
-You are required to pick one of the four data analysis options below or submit a proposal (no later than the 3rd day of class) petitioning to do a different project. We will let you know before the 4th day of class whether you have approval. If you are looking for other ideas consider these resources: 
-
-#### Resources
-
-* [Real scientists make their own data](http://seanjtaylor.com/post/41463778912/real-scientists-make-their-own-data)
-* [Data is plural](http://tinyletter.com/data-is-plural/archive)
-* [data.gov](https://www.data.gov/)
-
+You are required to pick one of the five data analysis options below and perform that analysis over the course of the class. 
 
 #### Option 1 
 
 Develop a prediction algorithm for identifying, flagging, and cataloging content that is trolling/bad on Twitter. 
 
-
 #### Option 2 
-
-
 
 #### Option 3 
 
 #### Option 4 
+
+#### Option 5
+
+You may petition to do your own analysis. You must submit your petition by the 3rd day of class. We will let you know before the 4th day of class whether you have approval. The minimum requirements for the project include:
+
+* You must be obtaining your own raw data
+* You must be doing your own data processing
+* The data must be available to be made public by end of class
+* You must specify your own question you are asking from the data
+* You need to provide reasonable justification you can answer that question with your data. 
+
+If you are looking for ideas consider these resources:
+
+* [Real scientists make their own data](http://seanjtaylor.com/post/41463778912/real-scientists-make-their-own-data)
+* [Data is plural](http://tinyletter.com/data-is-plural/archive)
+* [data.gov](https://www.data.gov/)
 
 
 
@@ -142,17 +149,35 @@ devtools::install_github("muschellij2/swirl", ref = "dev")
 
 ### Set up your Rprofile
 
-In order to track your progress in `swirl`, you need to create a directory.  For example, `~/swirl_classes`.  Then you must add these 2 lines to `~/.Rprofile` (if that file does not exist, you must create it):
+In order to track your progress in `swirl`, you need to create a directory.  For example, `~/swirl_classes` (or whatever directory you want). Then you will need to set up your Rprofile to find it. 
+You need to create a file called `.Rprofile` in your home directory if it doesn't exist. The code below tells you where your home directory is. Then it checks to see if you have a `.Rprofile` file and if not, creates one and tells you the path to that file. 
+
+```{r, eval=FALSE, echo=TRUE}
+homedir = path.expand("~")
+cat(paste0("Your home directory is \n ",homedir))
+
+
+rp = file.path(homedir,".Rprofile")
+has_rp = file.exists(rp)
+if(!has_rp){
+  file.create(rp)
+}
+cat(paste0("Your r-profile is located: ",rp))
+```
+
+
+Open the `.Rprofile` file with a text editor and add these two lines, then save it. 
 
 ```{r, eval = FALSE, echo = TRUE}
 options(
-  swirl_data_dir = "/path/to/progress",
+  swirl_data_dir = "~/swirl_classes",
   swirl_user = "my_jhed_id"
 )
 ```
-where you change the path and JHED information.  
 
-If you start `R`, then you should be able to see if this is correct using:
+where you change the path to where you want the course progress to be stored (somewhere it won't be deleted!) and your JHED information.  
+
+To check to see if this works start `R`, then run these commands which should print your progress directory and your JHED. 
 
 ```{r, eval = FALSE, echo = TRUE}
 getOption("swirl_data_dir")
@@ -161,17 +186,15 @@ getOption("swirl_user")
 
 ### Install swirl courses
 
-You can install the course swirl modules with the commands:
+You can install the pre-course swirl module with the command:
 
 ```{r, eval = FALSE, echo = TRUE}
 library(swirl)
-install_from_swirl("R_Programming")
-
 install_course_github("seankross", "AdvDataSci_Part_1")
-# Week 1
-install_from_swirl("Getting_and_Cleaning_Data")
-
 ```
+
+Then type `swirl()` to get started. 
+
 
 ## Course Materials
 
