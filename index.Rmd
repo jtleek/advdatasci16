@@ -135,13 +135,42 @@ For introducing tools and packages we will be using swirl courses to teach about
 You can install swirl with the command:
 
 ```{r, eval = FALSE, echo = TRUE}
-install.packages('swirl')
+# install.packages('swirl')
+install.packages("devtools")
+devtools::install_github("muschellij2/swirl", ref = "dev")
 ```
 
+<<<<<<< HEAD
 You can install the pre-course swirl module with the command:
+=======
+### Set up your Rprofile
+
+In order to track your progress in `swirl`, you need to create a directory.  For example, `~/swirl_classes`.  Then you must add these 2 lines to `~/.Rprofile` (if that file does not exist, you must create it):
+
+```{r, eval = FALSE, echo = TRUE}
+options(
+  swirl_data_dir = "/path/to/progress",
+  swirl_user = "my_jhed_id"
+)
+```
+where you change the path and JHED information.  
+
+If you start `R`, then you should be able to see if this is correct using:
+
+```{r, eval = FALSE, echo = TRUE}
+getOption("swirl_data_dir")
+getOption("swirl_user")
+```
+
+### Install swirl courses
+
+You can install the course swirl modules with the commands:
+>>>>>>> 3ddda5250023e90360082cdd5a0ea187181bc021
 
 ```{r, eval = FALSE, echo = TRUE}
 library(swirl)
+install_from_swirl("R_Programming")
+
 install_course_github("seankross", "AdvDataSci_Part_1")
 ```
 
