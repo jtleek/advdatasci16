@@ -90,6 +90,27 @@ install.packages("devtools")
 devtools::install_github("muschellij2/swirl", ref = "dev")
 ```
 
+### Set up your Rprofile
+
+In order to track your progress in `swirl`, you must add these 2 files to `~/.Rprofile` (if that file does not exist, you must create it):
+
+```{r, eval = FALSE, echo = TRUE}
+options(
+  swirl_data_dir = "/path/to/progress",
+  swirl_user = "my_jhed_id"
+)
+```
+where you change the path and JHED information.  
+
+If you start `R`, then you should be able to see if this is correct using:
+
+```{r, eval = FALSE, echo = TRUE}
+getOption("swirl_data_dir")
+getOption("swirl_user")
+```
+
+### Install swirl courses
+
 You can install the course swirl modules with the commands:
 
 ```{r, eval = FALSE, echo = TRUE}
@@ -97,7 +118,6 @@ library(swirl)
 install_course_github("seankross", "AdvDataSci_Part_1")
 # Week 1
 install_from_swirl("Getting_and_Cleaning_Data")
-
 ```
 
 ## Course Materials

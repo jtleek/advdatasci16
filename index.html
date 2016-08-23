@@ -298,10 +298,29 @@ div.tocify {
 <h2>swirl modules</h2>
 <p>For introducing tools and packages we will be using swirl courses to teach about concrete tools or packages. Each swirl course is required and should be completed before class on the day that it is assigned. You get 100% if you complete the module before class and 0% if you have not completed the module.</p>
 <p>You can install swirl with the command:</p>
-<pre class="r"><code>install.packages('swirl')</code></pre>
+<pre class="r"><code># install.packages('swirl')
+install.packages(&quot;devtools&quot;)
+devtools::install_github(&quot;muschellij2/swirl&quot;, ref = &quot;dev&quot;)</code></pre>
+<div id="set-up-your-rprofile" class="section level3">
+<h3>Set up your Rprofile</h3>
+<p>In order to track your progress in <code>swirl</code>, you must add these 2 files to <code>~/.Rprofile</code> (if that file does not exist, you must create it):</p>
+<pre class="r"><code>options(
+  swirl_data_dir = &quot;/path/to/progress&quot;,
+  swirl_user = &quot;my_jhed_id&quot;
+)</code></pre>
+<p>where you change the path and JHED information.</p>
+<p>If you start <code>R</code>, then you should be able to see if this is correct using:</p>
+<pre class="r"><code>getOption(&quot;swirl_data_dir&quot;)
+getOption(&quot;swirl_user&quot;)</code></pre>
+</div>
+<div id="install-swirl-courses" class="section level3">
+<h3>Install swirl courses</h3>
 <p>You can install the course swirl modules with the commands:</p>
 <pre class="r"><code>library(swirl)
-install_course_github(&quot;seankross&quot;, &quot;AdvDataSci_Part_1&quot;)</code></pre>
+install_course_github(&quot;seankross&quot;, &quot;AdvDataSci_Part_1&quot;)
+# Week 1
+install_from_swirl(&quot;Getting_and_Cleaning_Data&quot;)</code></pre>
+</div>
 </div>
 <div id="course-materials" class="section level2">
 <h2>Course Materials</h2>
@@ -832,7 +851,7 @@ install_course_github(&quot;seankross&quot;, &quot;AdvDataSci_Part_1&quot;)</cod
 <h2>Miscellaneous</h2>
 <p>Feel free to submit typos/errors/etc via the github repository associated with the class: <a href="https://github.com/jtleek/advdatasci16" class="uri">https://github.com/jtleek/advdatasci16</a></p>
 <p>This web-page is modified from Andrew Jaffe’s <a href="http://www.aejaffe.com/summerR_2015/">Summer 2015 R course</a>, which also has great material if you want to learn R.</p>
-<p>This page was last updated on 2016-08-23 14:38:39 Eastern Time.</p>
+<p>This page was last updated on 2016-08-23 15:37:08 Eastern Time.</p>
 </div>
 </div>
 
