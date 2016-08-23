@@ -85,7 +85,9 @@ For introducing tools and packages we will be using swirl courses to teach about
 You can install swirl with the command:
 
 ```{r, eval = FALSE, echo = TRUE}
-install.packages('swirl')
+# install.packages('swirl')
+install.packages("devtools")
+devtools::install_github("muschellij2/swirl", ref = "dev")
 ```
 
 You can install the course swirl modules with the commands:
