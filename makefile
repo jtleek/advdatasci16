@@ -6,4 +6,4 @@ clean:
 open:
 	open index.html
 edit:
-	open ${fname}.Rmd
+	open index.Rmd
