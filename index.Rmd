@@ -193,7 +193,8 @@ You can install the pre-course swirl module with the command:
 
 ```{r, eval = FALSE, echo = TRUE}
 library(swirl)
-install_course_github("seankross", "AdvDataSci_Part_1")
+# Week 0
+install_from_swirl("R_Programming")
 ```
 
 Then type `swirl()` to get started. 
