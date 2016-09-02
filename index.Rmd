@@ -189,12 +189,11 @@ getOption("swirl_user")
 
 ### Install swirl courses
 
-You can install the pre-course swirl module with the command:
+You can install the pre-course swirl module with the commands:
 
 ```{r, eval = FALSE, echo = TRUE}
 library(swirl)
-# Week 0
-install_from_swirl("R_Programming")
+install_course_github("seankross", "AdvDataSci_Part_1")
 ```
 
 Then type `swirl()` to get started. 
