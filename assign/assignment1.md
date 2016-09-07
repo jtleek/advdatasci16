@@ -8,10 +8,6 @@
 * Please make an edit and send a pull request to a classmate
 * Please check and approve/reject the pull request from your classmate
 
-### swirl
-
-* Please complete the loading data swirl module
-
 ### Course project
 
 * Please select your course project and start working (for next lab)
