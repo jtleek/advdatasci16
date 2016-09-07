@@ -100,7 +100,6 @@ Keep in mind that this is a data science class. In some cases standard methodolo
 
 You are required to pick one of the data analysis options below and perform that analysis over the course of the class.
 
-Options TBA on first day of class. 
 
 
 #### Option 1 
@@ -114,16 +113,20 @@ Analyze the traffic fatality data to identify any geographic, time varying, or o
 
 #### Option 3 
 
-Develop a model for predicting life expectancy in Baltimore down to single block resolution. You may need to develop an 
+Develop a model for predicting life expectancy in Baltimore down to single block resolution with estimates of uncertainty. You may need to develop an 
 approach for "downsampling" since the outcome data you'll be able to find is likely aggregated at the neighborhood level (http://health.baltimorecity.gov/node/231). 
 
-#### Option 4 
+#### Option 4
+
+Develop a statistical model for inferring the variables you need to calculate the Gail score (http://www.cancer.gov/bcrisktool/) for a woman based on her Facebook profile. Develop a model for the Gail score prediction from Facebook and its uncertainty. You should include estimates of uncertainty in the predicted score due to your inferred variables. 
+
+#### Option 5
 
 _Potentially fun but super hard project._ develop an algorithm for self-driving car using the training data: http://research.comma.ai/. Build a model for predicting at every moment what direction the car should be going, whether
 it should be signalling, and what speed it should be going. You might consider starting with a small subsample of the (big)
 training set. 
 
-#### Option 5
+#### Option 6
 
 You may petition to do your own analysis. You must submit your petition by the 3rd day of class (Wednesday, September 14). We will let you know before the 4th day of class whether you have approval. The minimum requirements for the project include:
 
@@ -137,6 +140,8 @@ If you are looking for ideas consider these resources:
 
 * [Real scientists make their own data](http://seanjtaylor.com/post/41463778912/real-scientists-make-their-own-data)
 * [Data is plural](http://tinyletter.com/data-is-plural/archive)
+* [Reddit data sets](https://www.reddit.com/r/datasets/)
+* [100 interesting data sets](http://rs.io/100-interesting-data-sets-for-statistics/)
 * [data.gov](https://www.data.gov/)
 
 
