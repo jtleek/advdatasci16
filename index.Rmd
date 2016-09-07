@@ -138,6 +138,12 @@ To keep you on track, starting in the 2nd week you will bring your current write
 
 Lab attendance and participation are mandatory. This is where you will learn how to write up and perform a data analysis. It is also the best way to get "hands dirty" with the projects people are working on. 
 
+The times for the reviews each week will be: 
+
+* _Elizabeth_: Friday 10:30 - 11:30
+* _John_: TBA
+* _Jeff_: TBA
+
 ## swirl modules
 
 For introducing tools and packages we will be using swirl courses to teach about concrete tools or packages. Each swirl course is required and should be completed before class on the day that it is assigned. You get 100% if you complete the module before class and 0% if you have not completed the module. 
@@ -196,13 +202,21 @@ library(swirl)
 install_course_github("seankross", "AdvDataSci_Part_1")
 ```
 
-Then type `swirl()` to get started. 
+Then type `swirl()` to get started.
+
+To install the latest course swirl modules please use: 
+
+```{r, eval = FALSE, echo = TRUE}
+library(swirl)
+install_course_github("jtleek", "advdatasci_swirl")
+```
 
 
 ## Course Materials
 
-| Week/Lecture  | Lecture  |  Video | Notes | Code | Assignment |
-|:------------|:------------|:------------|:------------|:------------|:------------|
+| Week/Lecture  | Lecture  | Notes | Assignment |
+|:------------|:------------|:------------|:------------|
+| Week 1, Wednesday | Welcome | [Slides](https://docs.google.com/presentation/d/1hIIGCqL_8Nw0gmhqIK4ZuMOAbD8o1rKSk--bNndx3ts/edit?usp=sharing)| [Assignment 1]() | 
 <!--
 | 0/1 | Welcome | | [Google Slides](https://docs.google.com/presentation/d/1M64qJM4nWCGSqfoIvFOYTmef7R38qz9XrWvS09qHowQ/edit?usp=sharing) [pdf](lecture_notes/00_01_Welcome.pdf)|   |
 | 0/2 | Version Control and Organization| | [GitHub](http://github.com)| | Install git, create GitHub account |
