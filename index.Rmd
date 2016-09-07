@@ -216,7 +216,7 @@ install_course_github("jtleek", "advdatasci_swirl")
 
 | Week/Lecture  | Lecture  | Notes | Assignment |
 |:------------|:------------|:------------|:------------|
-| Week 1, Wednesday | Welcome | [Slides](https://docs.google.com/presentation/d/1hIIGCqL_8Nw0gmhqIK4ZuMOAbD8o1rKSk--bNndx3ts/edit?usp=sharing)| [Assignment 1]() | 
+| Week 1, Wednesday | Welcome | [Slides](https://docs.google.com/presentation/d/1hIIGCqL_8Nw0gmhqIK4ZuMOAbD8o1rKSk--bNndx3ts/edit?usp=sharing)| [Assignment 1](https://github.com/jtleek/advdatasci16/blob/gh-pages/assign/assignment1.md) | 
 <!--
 | 0/1 | Welcome | | [Google Slides](https://docs.google.com/presentation/d/1M64qJM4nWCGSqfoIvFOYTmef7R38qz9XrWvS09qHowQ/edit?usp=sharing) [pdf](lecture_notes/00_01_Welcome.pdf)|   |
 | 0/2 | Version Control and Organization| | [GitHub](http://github.com)| | Install git, create GitHub account |
