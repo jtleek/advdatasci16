@@ -102,20 +102,30 @@ You are required to pick one of the data analysis options below and perform that
 
 Options TBA on first day of class. 
 
-<!--
+
 #### Option 1 
 
-Develop a prediction algorithm for identifying, flagging, and cataloging content that is trolling/bad on Twitter. 
+Develop a prediction algorithm for identifying and classifying users that are trolling or being mean on Twitter. 
+If you want an idea of what I'm talking about just look at the responses to any famous person's tweets. 
 
 #### Option 2 
 
+Analyze the traffic fatality data to identify any geographic, time varying, or other characteristics that are associated with traffic fatalities: https://www.transportation.gov/fastlane/2015-traffic-fatalities-data-has-just-been-released-call-action-download-and-analyze.
+
 #### Option 3 
+
+Develop a model for predicting life expectancy in Baltimore down to single block resolution. You may need to develop an 
+approach for "downsampling" since the outcome data you'll be able to find is likely aggregated at the neighborhood level (http://health.baltimorecity.gov/node/231). 
 
 #### Option 4 
 
+_Potentially fun but super hard project._ develop an algorithm for self-driving car using the training data: http://research.comma.ai/. Build a model for predicting at every moment what direction the car should be going, whether
+it should be signalling, and what speed it should be going. You might consider starting with a small subsample of the (big)
+training set. 
+
 #### Option 5
 
-You may petition to do your own analysis. You must submit your petition by the 3rd day of class. We will let you know before the 4th day of class whether you have approval. The minimum requirements for the project include:
+You may petition to do your own analysis. You must submit your petition by the 3rd day of class (Wednesday, September 14). We will let you know before the 4th day of class whether you have approval. The minimum requirements for the project include:
 
 * You must be obtaining your own raw data
 * You must be doing your own data processing
@@ -128,8 +138,6 @@ If you are looking for ideas consider these resources:
 * [Real scientists make their own data](http://seanjtaylor.com/post/41463778912/real-scientists-make-their-own-data)
 * [Data is plural](http://tinyletter.com/data-is-plural/archive)
 * [data.gov](https://www.data.gov/)
--->
-
 
 
 ### Data analysis reviews
