@@ -227,10 +227,10 @@ install_course_github("jtleek", "advdatasci_swirl")
 
 ## Course Materials
 
-Date  | Lecture  | Notes | Assignment 
-------------|------------|------------|------------
-September 7 | Welcome | [Slides](https://docs.google.com/presentation/d/1hIIGCqL_8Nw0gmhqIK4ZuMOAbD8o1rKSk--bNndx3ts/edit?usp=sharing) | [Assignment 1](https://github.com/jtleek/advdatasci16/blob/gh-pages/assign/assignment1.md) 
-
+| Date  | Lecture  | Notes | Assignment |
+|------------|------------|------------|------------|
+|September 7 | Welcome | [Slides](https://docs.google.com/presentation/d/1hIIGCqL_8Nw0gmhqIK4ZuMOAbD8o1rKSk--bNndx3ts/edit?usp=sharing) | [Assignment 1](https://github.com/jtleek/advdatasci16/blob/gh-pages/assign/assignment1.md) |
+|September 12 | Organizing | [Slides](https://docs.google.com/presentation/d/1QkkKZoJ3mVGagmNghtsr715MOnuZyRzZ0MN0uy3pWZw/edit?usp=sharing) | TBD 9-12|
 <!--
 | 0/1 | Welcome | | [Google Slides](https://docs.google.com/presentation/d/1M64qJM4nWCGSqfoIvFOYTmef7R38qz9XrWvS09qHowQ/edit?usp=sharing) [pdf](lecture_notes/00_01_Welcome.pdf)|   |
 | 0/2 | Version Control and Organization| | [GitHub](http://github.com)| | Install git, create GitHub account |
