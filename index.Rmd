@@ -154,8 +154,8 @@ Lab attendance and participation are mandatory. This is where you will learn how
 The times for the reviews each week will be: 
 
 * _Elizabeth_: Friday 10:30 - 11:30
-* _John_: TBA
-* _Jeff_: TBA
+* _John_: Tuesdays 10-11
+* _Jeff_: Tuesdays 3-4
 
 ## swirl modules
 
@@ -231,7 +231,8 @@ install_course_github("jtleek", "advdatasci_swirl")
 |------------|------------|------------|------------|
 |September 7 | Welcome | [Slides](https://docs.google.com/presentation/d/1hIIGCqL_8Nw0gmhqIK4ZuMOAbD8o1rKSk--bNndx3ts/edit?usp=sharing) | [Assignment 1](https://github.com/jtleek/advdatasci16/blob/gh-pages/assign/assignment1.md) |
 |September 12 | Organizing | [Slides](https://docs.google.com/presentation/d/1QkkKZoJ3mVGagmNghtsr715MOnuZyRzZ0MN0uy3pWZw/edit?usp=sharing) | 01_01_loading_data |
-| September 14 | Structure of a data analysis + getting data | [Slides](https://docs.google.com/presentation/d/1zaSCFbi-MuzHA_tToWw94-_jSJF1-ELsM_qRvhhG1yo/edit?usp=sharing) | TBD 9-14 | 
+| September 14 | Structure of a data analysis + getting data | [Slides](https://docs.google.com/presentation/d/1zaSCFbi-MuzHA_tToWw94-_jSJF1-ELsM_qRvhhG1yo/edit?usp=sharing) | | 
+| September 19 | Getting data from the web | [Slides](https://docs.google.com/presentation/d/1UBF5vCf9whv64ipZZi4NlEGKSeBvvfBPFItBdSzppk8/edit?usp=sharing) | TBD 9/19 | 
 <!--
 | 0/1 | Welcome | | [Google Slides](https://docs.google.com/presentation/d/1M64qJM4nWCGSqfoIvFOYTmef7R38qz9XrWvS09qHowQ/edit?usp=sharing) [pdf](lecture_notes/00_01_Welcome.pdf)|   |
 | 0/2 | Version Control and Organization| | [GitHub](http://github.com)| | Install git, create GitHub account |
