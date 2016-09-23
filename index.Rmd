@@ -232,7 +232,8 @@ install_course_github("jtleek", "advdatasci_swirl")
 |September 7 | Welcome | [Slides](https://docs.google.com/presentation/d/1hIIGCqL_8Nw0gmhqIK4ZuMOAbD8o1rKSk--bNndx3ts/edit?usp=sharing) | [Assignment 1](https://github.com/jtleek/advdatasci16/blob/gh-pages/assign/assignment1.md) |
 |September 12 | Organizing | [Slides](https://docs.google.com/presentation/d/1QkkKZoJ3mVGagmNghtsr715MOnuZyRzZ0MN0uy3pWZw/edit?usp=sharing) | 01_01_loading_data |
 | September 14 | Structure of a data analysis + getting data | [Slides](https://docs.google.com/presentation/d/1zaSCFbi-MuzHA_tToWw94-_jSJF1-ELsM_qRvhhG1yo/edit?usp=sharing) | | 
-| September 19 | Getting data from the web | [Slides](https://docs.google.com/presentation/d/1UBF5vCf9whv64ipZZi4NlEGKSeBvvfBPFItBdSzppk8/edit?usp=sharing) | TBD 9/19 | 
+| September 19 | Getting data from the web | [Slides](https://docs.google.com/presentation/d/1UBF5vCf9whv64ipZZi4NlEGKSeBvvfBPFItBdSzppk8/edit?usp=sharing) |  | 
+| September 23 | Data knick knacks and strings | [Slides](https://htmlpreview.github.io/?https://github.com/muschellij2/advdatasci/blob/gh-pages/lecture_notes/Data_Cleaning/Data_Cleaning.html#1) | |
 <!--
 | 0/1 | Welcome | | [Google Slides](https://docs.google.com/presentation/d/1M64qJM4nWCGSqfoIvFOYTmef7R38qz9XrWvS09qHowQ/edit?usp=sharing) [pdf](lecture_notes/00_01_Welcome.pdf)|   |
 | 0/2 | Version Control and Organization| | [GitHub](http://github.com)| | Install git, create GitHub account |
