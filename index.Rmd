@@ -236,6 +236,7 @@ install_course_github("jtleek", "advdatasci_swirl")
 | September 23 | Data knick knacks and strings | [Slides](https://htmlpreview.github.io/?https://github.com/muschellij2/advdatasci/blob/gh-pages/lecture_notes/Data_Cleaning/Data_Cleaning.html#1) | |
 | September 26 | Manipulating data | [Slides](https://docs.google.com/presentation/d/1Osey47fDprWCAZA0ZB9E0YTrLYPPw8c0hvRXYMBjmCw/edit?usp=sharing) || 
 | September 28 | Merging and databases | [Slides](https://docs.google.com/presentation/d/17ICuKwN_5O62Oztj-gdZzonHOHGspryJQdyZPHQGWqw/edit?usp=sharing) || 
+| October 3 | Regular expressions | [Slides](https://docs.google.com/presentation/d/1rLNJVyWuIEQqkqTWUlCY4G-l7H610wM1IRz3CL67Gec/edit?usp=sharing) |googlesheets,Grouping_and_Chaining_with_dplyr|
 <!--
 | 0/1 | Welcome | | [Google Slides](https://docs.google.com/presentation/d/1M64qJM4nWCGSqfoIvFOYTmef7R38qz9XrWvS09qHowQ/edit?usp=sharing) [pdf](lecture_notes/00_01_Welcome.pdf)|   |
 | 0/2 | Version Control and Organization| | [GitHub](http://github.com)| | Install git, create GitHub account |
