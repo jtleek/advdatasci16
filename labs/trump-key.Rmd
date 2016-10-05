@@ -1,0 +1,80 @@
+---
+title: "Trump lab"
+author: "Jeff Leek"
+date: "July 12, 2016"
+output: html_document
+---
+
+We are going to follow along with David Robinson's analysis: http://varianceexplained.org/r/trump-tweets/
+
+
+```{r}
+library(dplyr)
+library(tidytext)
+```
+
+
+1. Load the trump tweet data: `load(url("http://varianceexplained.org/files/trump_tweets_df.rda"))`
+
+```{r}
+load(url("http://varianceexplained.org/files/trump_tweets_df.rda"))
+```
+
+2. Create a data frame with an id variable, the time it was creatd, whether it came from android or iphone, and the text of the tweet.
+
+```{r}
+tweets <- trump_tweets_df %>%
+  select(id, statusSource, text, created) %>%
+  extract(statusSource, "source", "Twitter for (.*?)<") %>%
+  filter(source %in% c("iPhone", "Android"))
+
+```
+
+3. Plot the time of day for the Android and iPhone tweets
+
+```{r}
+tme_dat = tweets %>% group_by(source) %>% 
+  mutate(hour = hour(created)) %>%
+  group_by(hour,source) %>% summarize(n=n()) %>% 
+  ungroup() %>% 
+  mutate(percent = n/sum(n))
+
+ggplot(tme_dat,aes(hour,percent,color=source)) + geom_line()
+```
+
+4. Load the nrc sentiment lexicon from the sentiments data in the tidytext package
+
+```{r}
+nrc <- sentiments %>%
+  filter(lexicon == "nrc") %>%
+  dplyr::select(word, sentiment)
+```
+
+
+5. Get the tokens out of the trump tweets
+
+```{r}
+trump_tok = tweets %>% mutate(linenumber=row_number()) %>% unnest_tokens(word,text) 
+```
+
+6. Label the words with the sentiments using an inner join with the nrc sentiments
+
+```{r}
+trump_sent = trump_tok %>% inner_join(nrc)
+```
+
+7. Make a table of the sentiment by source
+
+```{r}
+trump_sent %>% group_by(sentiment,source) %>% summarize(n=n())
+```
+
+8. Make a plot of what fraction of tweets are angry or fearful or disgusted by hour. 
+
+```{r}
+bad = trump_sent %>%  mutate(hour = hour(created)) %>% 
+  group_by(hour) %>% summarize(angry = mean(sentiment=="anger" | sentiment=="fear" | sentiment =="disgust")) %>% ungroup()
+
+ggplot(bad,aes(hour,angry)) + geom_line()
+```
+

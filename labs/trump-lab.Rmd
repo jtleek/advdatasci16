@@ -1,0 +1,30 @@
+---
+title: "Trump lab"
+author: "Jeff Leek"
+date: "July 12, 2016"
+output: html_document
+---
+
+
+1. Load the trump tweet data: `load(url("http://varianceexplained.org/files/trump_tweets_df.rda"))`
+
+
+2. Create a data frame with an id variable, the time it was creatd, whether it came from android or iphone, and the text of the tweet.
+
+
+3. Plot the time of day for the Android and iPhone tweets
+
+4. Load the nrc sentiment lexicon from the sentiments data in the tidytext package
+
+
+5. Get the tokens out of the trump tweets
+
+6. Label the words with the sentiments using an inner join with the nrc sentiments
+
+
+7. Make a table of the sentiment by source
+
+
+8. Make a plot of what fraction of tweets are angry or fearful or disgusted by hour. 
+
+
