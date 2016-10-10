@@ -238,7 +238,7 @@ install_course_github("jtleek", "advdatasci_swirl")
 | September 28 | Merging and databases | [Slides](https://docs.google.com/presentation/d/17ICuKwN_5O62Oztj-gdZzonHOHGspryJQdyZPHQGWqw/edit?usp=sharing) || 
 | October 3 | Regular expressions | [Slides](https://docs.google.com/presentation/d/1rLNJVyWuIEQqkqTWUlCY4G-l7H610wM1IRz3CL67Gec/edit?usp=sharing) |googlesheets,Grouping_and_Chaining_with_dplyr|
 | October 5 | Tidy text | [Slides](https://docs.google.com/presentation/d/1xTh0TZkvUmKHtV-T6rmmxqf7m-6U7q1XQaEvi13W8-E/edit#slide=id.p) | Dates_and_Times_with_lubridate |
-| October 10 | Topic models, EDA | [Slides (topic models)](https://www.dropbox.com/sh/jyd8fmsgofgdaw1/AABjMq1i7t0irrwbgy3c1wlAa?dl=0):::[Slides (EDA)](https://docs.google.com/presentation/d/1Os3PBkFV3HYq1yUIq_43klvKJolIJZKR33hRKB8YRm4/edit?usp=sharing) | redo previous except for loading_data :(| 
+| October 10 | Topic models, EDA | [Slides (topic models)](https://docs.google.com/presentation/d/1ccsFEY9NCA5cQMTF5DMw4v1CpITA4pNl8SoYJ7NSQ00/edit?usp=sharing):::[Slides (EDA)](https://docs.google.com/presentation/d/1Os3PBkFV3HYq1yUIq_43klvKJolIJZKR33hRKB8YRm4/edit?usp=sharing) | redo previous except for loading_data :(| 
 
 
 <!--
