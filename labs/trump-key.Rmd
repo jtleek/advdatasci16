@@ -11,6 +11,9 @@ We are going to follow along with David Robinson's analysis: http://varianceexpl
 ```{r}
 library(dplyr)
 library(tidytext)
+library(tidyr)
+library(lubridate)
+library(ggplot2)
 ```
 
 
@@ -27,14 +30,13 @@ tweets <- trump_tweets_df %>%
   select(id, statusSource, text, created) %>%
   extract(statusSource, "source", "Twitter for (.*?)<") %>%
   filter(source %in% c("iPhone", "Android"))
-
 ```
 
 3. Plot the time of day for the Android and iPhone tweets
 
 ```{r}
 tme_dat = tweets %>% group_by(source) %>% 
-  mutate(hour = hour(created)) %>%
+  mutate(hour = hour(with_tz(created, "EST"))) %>%
   group_by(hour,source) %>% summarize(n=n()) %>% 
   ungroup() %>% 
   mutate(percent = n/sum(n))
