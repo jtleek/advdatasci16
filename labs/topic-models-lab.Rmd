@@ -1,0 +1,36 @@
+---
+title: "Topic models lab key"
+author: "Jeff Leek"
+date: "October 9, 2016"
+output: html_document
+---
+
+1. Download the Simply Statistics Github repo from here: https://github.com/simplystats/simplystats.github.io
+
+2. Read in the text files from the `_posts` subdirectory of the resulting set of files. You will want to use the `tm` package for this. The functions you will need are `DirSource` and `Vcorpus`. 
+
+3. Now look at the meta data for the 926th document using the `meta` command 
+
+4. Now use the `tidy` command to tidy up the documents and then unnest the tokens. 
+
+5. Remove the stopwords
+
+
+6. Calculate the most frequent words using `group_by`, `count`, and `arrange`
+
+
+7. Only keep words in this list of English words: https://github.com/dwyl/english-words/blob/master/words.txt.zip and remove the 20 most frequent words. 
+
+
+
+8. Cast the tidy obect into a DocumentTermMatrix object. 
+
+
+
+9. Use the `LDA` command in the `topicmodels` package to fit a topic model using 3 and 10 topics. 
+
+
+10. Make a wordcloud of the top 20 words from each of these models. Can you "label" any of them. 
+
+
+

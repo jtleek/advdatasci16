@@ -238,6 +238,9 @@ install_course_github("jtleek", "advdatasci_swirl")
 | September 28 | Merging and databases | [Slides](https://docs.google.com/presentation/d/17ICuKwN_5O62Oztj-gdZzonHOHGspryJQdyZPHQGWqw/edit?usp=sharing) || 
 | October 3 | Regular expressions | [Slides](https://docs.google.com/presentation/d/1rLNJVyWuIEQqkqTWUlCY4G-l7H610wM1IRz3CL67Gec/edit?usp=sharing) |googlesheets,Grouping_and_Chaining_with_dplyr|
 | October 5 | Tidy text | [Slides](https://docs.google.com/presentation/d/1xTh0TZkvUmKHtV-T6rmmxqf7m-6U7q1XQaEvi13W8-E/edit#slide=id.p) | Dates_and_Times_with_lubridate |
+| October 10 | Topic models, EDA | [Slides (topic models)](https://www.dropbox.com/sh/jyd8fmsgofgdaw1/AABjMq1i7t0irrwbgy3c1wlAa?dl=0) [EDA](https://docs.google.com/presentation/d/1Os3PBkFV3HYq1yUIq_43klvKJolIJZKR33hRKB8YRm4/edit?usp=sharing) | redo previous except for loading_data :(| 
+
+
 <!--
 | 0/1 | Welcome | | [Google Slides](https://docs.google.com/presentation/d/1M64qJM4nWCGSqfoIvFOYTmef7R38qz9XrWvS09qHowQ/edit?usp=sharing) [pdf](lecture_notes/00_01_Welcome.pdf)|   |
 | 0/2 | Version Control and Organization| | [GitHub](http://github.com)| | Install git, create GitHub account |
