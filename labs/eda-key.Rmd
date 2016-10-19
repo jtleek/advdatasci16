@@ -1,0 +1,89 @@
+---
+title: "EDA lab"
+author: "Jeff Leek"
+date: "October 17, 2016"
+output: html_document
+---
+
+
+1.  Make a plot of latitude versus longitude for the quakes data in base R. 
+
+```{r}
+plot(quakes$lat,quakes$long)
+```
+
+2. Make the points filled in circles
+
+```{r}
+plot(quakes$lat,quakes$long,pch=19)
+```
+
+2. Color the figure by the number of stations reporting (hint use the `cut2` function). 
+
+```{r}
+library(Hmisc)
+sfactor = cut2(quakes$stations)
+table(sfactor,as.numeric(sfactor))
+cols=colorRampPalette(c("lightblue","darkblue"))(6)
+
+plot(quakes$lat,quakes$long,col=cols[as.numeric(sfactor)],pch=19)
+```
+
+3. Make the axis labels "Latitude" and "Longitude"
+
+```{r}
+plot(quakes$lat,quakes$long,
+     col=cols[as.numeric(sfactor)],
+     pch=19,
+     xlab="Latitude",ylab="Longitude")
+```
+
+3. Make the axis labels and ticks larger
+
+```{r}
+plot(quakes$lat,quakes$long,
+     col=cols[as.numeric(sfactor)],
+     pch=19,
+     xlab="Latitude",ylab="Longitude",cex.lab=1.5,cex.axis=1.5)
+```
+
+4. Add the title "Spatial Distribution of Stations"
+
+```{r}
+plot(quakes$lat,quakes$long,
+     col=cols[as.numeric(sfactor)],
+     pch=19,
+     xlab="Latitude",ylab="Longitude",
+     cex.lab=1.5,cex.axis=1.5,
+     main="Spatial Distribution of Stations")
+```
+
+
+5. Add a legend showing the coloring
+
+```{r}
+plot(quakes$lat,quakes$long,
+     col=cols[as.numeric(sfactor)],
+     pch=19,
+     xlab="Latitude",ylab="Longitude",
+     cex.lab=1.5,cex.axis=1.5,
+     main="Spatial Distribution of Stations")
+legend(-35,175,legend=unique(sfactor),
+       col=cols[1:6],pch=19)
+```
+
+6. Add a title to the legend
+
+```{r}
+plot(quakes$lat,quakes$long,
+     col=cols[as.numeric(sfactor)],
+     pch=19,
+     xlab="Latitude",ylab="Longitude",
+     cex.lab=1.5,cex.axis=1.5,
+     main="Spatial Distribution of Stations")
+legend(-35,175,legend=unique(sfactor),
+       col=cols[1:6],pch=19)
+text(-31,177,"Number\n of stations\n reporting")
+```
+
+

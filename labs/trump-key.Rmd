@@ -49,7 +49,7 @@ ggplot(tme_dat,aes(hour,percent,color=source)) + geom_line()
 ```{r}
 nrc <- sentiments %>%
   filter(lexicon == "nrc") %>%
-  dplyr::select(word, sentiment)
+  select(word, sentiment)
 ```
 
 
@@ -74,7 +74,7 @@ trump_sent %>% group_by(sentiment,source) %>% summarize(n=n())
 8. Make a plot of what fraction of tweets are angry or fearful or disgusted by hour. 
 
 ```{r}
-bad = trump_sent %>%  mutate(hour = hour(created)) %>% 
+bad = trump_sent %>%  mutate(hour = hour(with_tz(created, "EST"))) %>% 
   group_by(hour) %>% summarize(angry = mean(sentiment=="anger" | sentiment=="fear" | sentiment =="disgust")) %>% ungroup()
 
 ggplot(bad,aes(hour,angry)) + geom_line()

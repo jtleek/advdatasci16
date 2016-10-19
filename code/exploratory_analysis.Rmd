@@ -1,0 +1,152 @@
+---
+title: "Exploratory Analysis"
+author: "Jeff Leek"
+date: "October 17, 2016"
+output: html_document
+---
+
+Assuming you have downloaded http://github.com/simplystats/simplystats.github.io
+
+```{r}
+library(tm)
+library(dplyr)
+ds = DirSource("_posts/")
+simply = VCorpus(ds)
+
+class(simply)
+inspect(simply)
+str(simply[[1]])
+
+```
+
+
+Tidy the data
+
+```{r}
+
+library(tidytext)
+tidy_simply = simply %>% tidy %>%
+  unnest_tokens(word,text) %>% select(author,datetimestamp,id,word)
+```
+
+Look at the dimensions and values
+
+```{r}
+str(tidy_simply)
+dim(tidy_simply)
+head(tidy_simply)
+tail(tidy_simply)
+
+table(tidy_simply$word)
+tidy_simply %>% group_by(word) %>% count()
+
+```
+
+Hunt down NA's and weird values
+
+```{r}
+colMeans(is.na(tidy_simply))
+
+most_freq = tidy_simply %>% group_by(word) %>% 
+  count() %>% arrange(desc(n))
+most_freq
+
+data('stop_words')
+
+tidy_simply = tidy_simply %>% anti_join(stop_words)
+most_freq = tidy_simply %>% group_by(word) %>% 
+  count() %>% arrange(desc(n))
+most_freq
+```
+
+Make your plots pretty
+
+```{r}
+#devtools::install_github('alyssafrazee/RSkittleBrewer')
+trop = RSkittleBrewer::RSkittleBrewer("tropical")
+palette(trop)
+par(pch=19)
+```
+
+Make some one d plots
+
+```{r}
+
+hist(most_freq$n,col=2)
+hist(log2(most_freq$n+1),col=2)
+
+boxplot(log2(most_freq$n+1),col=2)
+nn = dim(most_freq)[1]
+
+plot(rep(1,nn),log2(most_freq$n+1),col=2)
+
+
+most_freq = most_freq %>% sample_n(100)
+
+plot(jitter(rep(1,nn)),log2(most_freq$n+1),
+col=2,xlim=c(0.5,1.5))
+
+boxplot(log2(most_freq$n+1),col=2)
+stripchart(log2(most_freq$n+1),vertical=TRUE,col=2,add=TRUE)
+
+```
+
+
+Make some plots with colors for confounders
+
+```{r}
+library(ISLR)
+library(ggplot2)
+data(Wage)
+
+p = ggplot(aes(age,wage),data=Wage) 
+p + geom_point()
+p + geom_point(aes(colour=jobclass))
+```
+
+
+Models as a visual aid
+
+```{r}
+qq <- qplot(age,wage,colour=education,data=Wage)
+qq +  geom_smooth(method='lm',formula=y~x)
+
+library(modelr)
+library(dplyr)
+mod1 = lm(wage ~ age*education, data=Wage)
+Wage1 = Wage %>% add_predictions(mod1)
+qq <- qplot(age,wage,colour=education,data=Wage1)
+qq + geom_point(aes(age,pred),colour="black")
+```
+
+Residuals
+
+```{r}
+Wage1 = Wage1 %>%  mutate(resid=wage-pred)
+qplot(age,resid,colour=education,data=Wage1)
+```
+
+
+
+Making factors
+
+```{r}
+library(Hmisc)
+cutWage <- cut2(Wage$wage,g=3)
+table(cutWage)
+
+p1 <- qplot(cutWage,age, data=Wage,fill=cutWage,
+      geom=c("boxplot"))
+p1
+```
+
+Overlay points
+
+```{r}
+p2 <- qplot(cutWage,age, data=training,fill=cutWage, geom=c("boxplot","jitter"))
+grid.arrange(p1,p2,ncol=2)
+```
+
+
+
+

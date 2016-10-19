@@ -1,0 +1,34 @@
+---
+title: "EDA lab"
+author: "Jeff Leek"
+date: "October 17, 2016"
+output: html_document
+---
+
+
+1.  Make a plot of latitude versus longitude for the quakes data in base R. 
+
+
+
+2. Make the points filled in circles
+
+
+3. Color the figure by the number of stations reporting (hint use the `cut2` function). 
+
+
+
+4. Make the axis labels "Latitude" and "Longitude"
+
+
+5. Make the axis labels and ticks larger
+
+6. Add the title "Spatial Distribution of Stations"
+
+
+7. Add a legend showing the coloring
+
+
+8. Add a title to the legend
+
+
+
