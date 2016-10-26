@@ -241,6 +241,8 @@ install_course_github("jtleek", "advdatasci_swirl")
 | October 10 | Topic models, EDA | [Slides (topic models)](https://docs.google.com/presentation/d/1ccsFEY9NCA5cQMTF5DMw4v1CpITA4pNl8SoYJ7NSQ00/edit?usp=sharing):::[Slides (EDA)](https://docs.google.com/presentation/d/1Os3PBkFV3HYq1yUIq_43klvKJolIJZKR33hRKB8YRm4/edit?usp=sharing) | redo previous except for loading_data :(| 
 | October 17 | EDA | [Slides (EDA)](https://docs.google.com/presentation/d/1Os3PBkFV3HYq1yUIq_43klvKJolIJZKR33hRKB8YRm4/edit?usp=sharing) | | 
 | October 10 | Topic models, EDA | [Slides (EDA)](https://docs.google.com/presentation/d/1Os3PBkFV3HYq1yUIq_43klvKJolIJZKR33hRKB8YRm4/edit?usp=sharing):::[Slides (expository)](https://docs.google.com/presentation/d/13QtTGsNFjIC3IYYXHZG65w30f4HC_4UdjPadCH8x1zE/edit?usp=sharing) | Manipulating data with dplyr| 
+|October 19 | Expository graphs | [Slides (expository)](https://docs.google.com/presentation/d/13QtTGsNFjIC3IYYXHZG65w30f4HC_4UdjPadCH8x1zE/edit?usp=sharing) || 
+|October 26 | Unsupervised analysis | [Slides](https://docs.google.com/presentation/d/1jR2_gwBP2l2xquWHAuF3iUUx5b063XUTTSpnrCXgMTA/edit?usp=sharing)||
 
 <!--
 | 0/1 | Welcome | | [Google Slides](https://docs.google.com/presentation/d/1M64qJM4nWCGSqfoIvFOYTmef7R38qz9XrWvS09qHowQ/edit?usp=sharing) [pdf](lecture_notes/00_01_Welcome.pdf)|   |
