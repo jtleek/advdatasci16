@@ -54,7 +54,7 @@ Upon successfully completing this course, students will be able to:
 
 
 
-## Grading 
+## Grading
 
 I believe the purpose of graduate education is to train you to be able to think for yourself and initiate and complete your own projects. I am super excited to talk to you about ideas, work out solutions with you, and help you to figure out statistical methods and/or data analysis. I don’t think that graduate school grades are important for this purpose. This means that I don’t care very much about graduate student grades.
 
@@ -66,6 +66,9 @@ That being said, I have to give you a grade so they will be:
 
 If you are getting a grade below a C it is because you basically aren't trying/working. I rarely give them out.
 
+
+### Adv Data Sci I
+
 The percentages will be assigned in the following way: 
 
 * Pre-class swirl module - 5%
@@ -74,6 +77,19 @@ The percentages will be assigned in the following way:
 * Final project - 25% 
 
 You get the points for the swirl modules as long as you complete them before class starts (no exceptions without prior approval). You get 50% of the points for attendance at labs and 50% for having your current version of the code up-to-date. The data analysis assignment will be graded on a 1-5 scale for each category described below and the percentages assigned as described below. 
+
+
+### Adv Data Sci II
+
+The percentages will be assigned in the following way: 
+
+* Completing swirl modules - 20% 
+* Preparedness/attendance at labs - 50%
+* Final project - 50% 
+
+You get the points for the swirl modules as long as you complete them before class starts (no exceptions without prior approval). You get 50% of the points for attendance at labs and 50% for having your current version of the code up-to-date. The data analysis project will be graded on a 1-5 scale as described below. 
+
+
 
 
 ## Assignments
@@ -156,6 +172,18 @@ The times for the reviews each week will be:
 * _Elizabeth_: Friday 10:30 - 11:30
 * _John_: Tuesdays 10-11
 * _Jeff_: Tuesdays 3-4
+
+
+### Data product assignments
+
+More coming soon but the grades will be assigned on the scale of: 
+
+
+1. Did you solve the problem? (30%)
+2. Did you use appropriate statistical methods? (40%)
+3. Was your product usable? (20%)
+4. Was your product well documented? (10%)
+
 
 ## swirl modules
 
@@ -243,7 +271,8 @@ install_course_github("jtleek", "advdatasci_swirl")
 | October 10 | Topic models, EDA | [Slides (EDA)](https://docs.google.com/presentation/d/1Os3PBkFV3HYq1yUIq_43klvKJolIJZKR33hRKB8YRm4/edit?usp=sharing):::[Slides (expository)](https://docs.google.com/presentation/d/13QtTGsNFjIC3IYYXHZG65w30f4HC_4UdjPadCH8x1zE/edit?usp=sharing) | Manipulating data with dplyr| 
 |October 19 | Expository graphs | [Slides (expository)](https://docs.google.com/presentation/d/13QtTGsNFjIC3IYYXHZG65w30f4HC_4UdjPadCH8x1zE/edit?usp=sharing) || 
 |October 26 | Unsupervised analysis | [Slides](https://docs.google.com/presentation/d/1jR2_gwBP2l2xquWHAuF3iUUx5b063XUTTSpnrCXgMTA/edit?usp=sharing)||
-
+|-|-|Adv Data Sci II|-|
+|October 31 | Dimension reduction | [Slides](https://docs.google.com/presentation/d/1pNVAe4K8KFR2M1TSL1ER2M9iU0iaX_7rLx5YFbJKmm8/edit?usp=sharing)||
 <!--
 | 0/1 | Welcome | | [Google Slides](https://docs.google.com/presentation/d/1M64qJM4nWCGSqfoIvFOYTmef7R38qz9XrWvS09qHowQ/edit?usp=sharing) [pdf](lecture_notes/00_01_Welcome.pdf)|   |
 | 0/2 | Version Control and Organization| | [GitHub](http://github.com)| | Install git, create GitHub account |
