@@ -275,6 +275,7 @@ install_course_github("jtleek", "advdatasci_swirl")
 |October 31 | Dimension reduction | [Slides](https://docs.google.com/presentation/d/1pNVAe4K8KFR2M1TSL1ER2M9iU0iaX_7rLx5YFbJKmm8/edit?usp=sharing)||
 |Nov 2 | Shiny | [Slides (part1)](https://datasciencespecialization.github.io/Developing_Data_Products/Shiny_Part_1/Shiny_Part_1.html#1):::[Slides (part2)](https://datasciencespecialization.github.io/Developing_Data_Products/Shiny_Part_2/Shiny_Part_2.html#1)||
 |Nov 7| Data Products | [Slides (data products)](https://docs.google.com/presentation/d/1P0yPU-eJr88Km1wv7cpsl4m3P8kKFLU-Gad9wl0wgVc/edit?usp=sharing)::: [Slides (Dimension reduction)](https://docs.google.com/presentation/d/1pNVAe4K8KFR2M1TSL1ER2M9iU0iaX_7rLx5YFbJKmm8/edit?usp=sharing)||
+|Nov 9 | Modeling | [Slides](https://docs.google.com/presentation/d/1HGGTI4abHyhm9KdClP16xabTn5TtnbN2ED9RK1wK29Y/edit?usp=sharing) ||
 <!--
 | 0/1 | Welcome | | [Google Slides](https://docs.google.com/presentation/d/1M64qJM4nWCGSqfoIvFOYTmef7R38qz9XrWvS09qHowQ/edit?usp=sharing) [pdf](lecture_notes/00_01_Welcome.pdf)|   |
 | 0/2 | Version Control and Organization| | [GitHub](http://github.com)| | Install git, create GitHub account |
