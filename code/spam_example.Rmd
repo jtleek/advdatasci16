@@ -1,0 +1,90 @@
+---
+title: "Spam example"
+output: html_document
+---
+
+# Example of how to build a predictor in R
+
+
+## Question: Can we predict spam emails from the words in the emails? 
+
+Dear Jeff,
+
+Can you send me your address so I can send you the invitation?
+
+Thanks,
+
+Ben
+
+### Load the data
+
+```{r}
+library(kernlab)
+data(spam)
+head(spam)
+```
+
+
+### Training and test sets
+
+```{r}
+set.seed(111416)
+n = dim(spam)[1]
+index = sample(1:n,size=n*0.75,replace=F)
+training=spam[index,]
+test = spam[(1:n)[-index],]
+
+```
+
+
+## Features - potential predictor frequency of "your"
+
+The frequency of "your" in this email is: 
+
+$$ 2/17 = 0.118$$
+
+### Look at potential predictor
+
+```{r}
+plot(density(training$your[training$type=="nonspam"]),
+     col="blue",main="",xlab="Frequency of 'your'")
+lines(density(training$your[training$type=="spam"]),col="red")
+
+```
+
+## Algorithm - constant cutoff
+
+```{r}
+prediction <- ifelse(training$your > 0.5,"spam","nonspam")
+
+```
+
+
+## Evaluation 
+
+### In sample
+
+```{r}
+table(prediction,training$type)/length(training$type)
+```
+
+```{r}
+mean(prediction==training$type)
+```
+
+### Could adjust algorithm here
+
+```{r}
+prediction2 <- ifelse(training$your > 0.6,"spam","nonspam")
+```
+
+
+### Out of sample
+
+Only our best predictor here
+
+```{r}
+testpredict = ifelse(test$your > 0.6, "spam","nonspam")
+table(testpredict,test$type)/length(test$type)
+mean(testpredict==test$type)
+```
