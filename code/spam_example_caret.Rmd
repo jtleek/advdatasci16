@@ -1,0 +1,327 @@
+---
+title: "Caret spam example"
+output: html_document
+---
+
+
+## SPAM Example: Data splitting
+
+```{r }
+library(caret); library(kernlab); data(spam)
+inTrain <- createDataPartition(y=spam$type,
+                              p=0.75, list=FALSE)
+training <- spam[inTrain,]
+testing <- spam[-inTrain,]
+dim(training)
+```
+
+
+ 
+
+## SPAM Example: Fit a model
+
+```{r }
+set.seed(32343)
+modelFit <- train(type ~.,data=training, method="glm")
+modelFit
+```
+
+
+ 
+
+## SPAM Example: Final model
+
+```{r }
+modelFit$finalModel
+```
+
+
+ 
+
+## SPAM Example: Prediction
+
+```{r predictions, dependson="training",cache=TRUE}
+predictions <- predict(modelFit,newdata=testing)
+predictions
+```
+
+ 
+
+## SPAM Example: Confusion Matrix
+
+```{r confusion, dependson="predictions",cache=TRUE}
+confusionMatrix(predictions,testing$type)
+```
+
+
+
+## SPAM Example: K-fold
+
+```{r }
+set.seed(32323)
+folds <- createFolds(y=spam$type,k=10,
+                             list=TRUE,returnTrain=TRUE)
+sapply(folds,length)
+folds[[1]][1:10]
+```
+
+
+
+## SPAM Example: Return test
+
+```{r }
+set.seed(32323)
+folds <- createFolds(y=spam$type,k=10,
+                             list=TRUE,returnTrain=FALSE)
+sapply(folds,length)
+folds[[1]][1:10]
+```
+
+
+
+## SPAM Example: Resampling
+
+```{r }
+set.seed(32323)
+folds <- createResample(y=spam$type,times=10,
+                             list=TRUE)
+sapply(folds,length)
+folds[[1]][1:10]
+```
+
+
+
+## SPAM Example: Time Slices {.smaller}
+
+```{r }
+set.seed(32323)
+tme <- 1:1000
+folds <- createTimeSlices(y=tme,initialWindow=20,
+                          horizon=10)
+names(folds)
+folds$train[[1]]
+folds$test[[1]]
+```
+
+
+
+```{r }
+library(caret); library(kernlab); data(spam)
+inTrain <- createDataPartition(y=spam$type,
+                              p=0.75, list=FALSE)
+training <- spam[inTrain,]
+testing <- spam[-inTrain,]
+hist(training$capitalAve,main="",xlab="ave. capital run length")
+```
+
+
+
+## Why preprocess?
+
+```{r }
+mean(training$capitalAve)
+sd(training$capitalAve)
+```
+
+
+
+## Standardizing
+
+```{r }
+trainCapAve <- training$capitalAve
+trainCapAveS <- (trainCapAve  - mean(trainCapAve))/sd(trainCapAve) 
+mean(trainCapAveS)
+sd(trainCapAveS)
+```
+
+
+
+## Standardizing - test set
+
+```{r }
+testCapAve <- testing$capitalAve
+testCapAveS <- (testCapAve  - mean(trainCapAve))/sd(trainCapAve) 
+mean(testCapAveS)
+sd(testCapAveS)
+```
+
+
+
+
+## Standardizing - _preProcess_ function
+
+```{r }
+preObj <- preProcess(training[,-58],method=c("center","scale"))
+trainCapAveS <- predict(preObj,training[,-58])$capitalAve
+mean(trainCapAveS)
+sd(trainCapAveS)
+```
+
+
+
+
+## Standardizing - _preProcess_ function
+
+```{r }
+testCapAveS <- predict(preObj,testing[,-58])$capitalAve
+mean(testCapAveS)
+sd(testCapAveS)
+```
+
+
+
+## Standardizing - _preProcess_ argument
+
+```{r }
+set.seed(32343)
+modelFit <- train(type ~.,data=training,
+                  preProcess=c("center","scale"),method="glm")
+modelFit
+```
+
+
+
+
+## Standardizing - Box-Cox transforms
+
+```{r }
+preObj <- preProcess(training[,-58],method=c("BoxCox"))
+trainCapAveS <- predict(preObj,training[,-58])$capitalAve
+par(mfrow=c(1,2)); hist(trainCapAveS); qqnorm(trainCapAveS)
+```
+
+
+
+
+## Standardizing - Imputing data
+
+```{r }
+set.seed(13343)
+
+# Make some values NA
+training$capAve <- training$capitalAve
+selectNA <- rbinom(dim(training)[1],size=1,prob=0.05)==1
+training$capAve[selectNA] <- NA
+
+# Impute and standardize
+preObj <- preProcess(training[,-58],method="knnImpute")
+capAve <- predict(preObj,training[,-58])$capAve
+
+# Standardize true values
+capAveTruth <- training$capitalAve
+capAveTruth <- (capAveTruth-mean(capAveTruth))/sd(capAveTruth)
+```
+
+
+
+
+## Standardizing - Imputing data
+
+```{r ,dependson="knn",cache=TRUE,fig.height=3.5,fig.width=7}
+quantile(capAve - capAveTruth)
+quantile((capAve - capAveTruth)[selectNA])
+quantile((capAve - capAveTruth)[!selectNA])
+```
+
+
+
+## Correlated predictors
+
+```{r }
+library(caret); library(kernlab); data(spam)
+inTrain <- createDataPartition(y=spam$type,
+                              p=0.75, list=FALSE)
+training <- spam[inTrain,]
+testing <- spam[-inTrain,]
+
+M <- abs(cor(training[,-58]))
+diag(M) <- 0
+which(M > 0.8,arr.ind=T)
+```
+
+
+
+## Correlated predictors
+
+```{r }
+names(spam)[c(34,32)]
+plot(spam[,34],spam[,32])
+```
+
+
+## Principal components in R - prcomp
+
+```{r }
+smallSpam <- spam[,c(34,32)]
+prComp <- prcomp(smallSpam)
+plot(prComp$x[,1],prComp$x[,2])
+```
+
+
+
+## Principal components in R - prcomp
+
+```{r }
+prComp$rotation
+```
+
+
+
+
+## PCA on SPAM data
+
+```{r }
+typeColor <- ((spam$type=="spam")*1 + 1)
+prComp <- prcomp(log10(spam[,-58]+1))
+plot(prComp$x[,1],prComp$x[,2],col=typeColor,xlab="PC1",ylab="PC2")
+```
+
+
+
+
+## PCA with caret
+
+```{r }
+preProc <- preProcess(log10(spam[,-58]+1),method="pca",pcaComp=2)
+spamPC <- predict(preProc,log10(spam[,-58]+1))
+plot(spamPC[,1],spamPC[,2],col=typeColor)
+```
+
+
+
+
+## Preprocessing with PCA
+
+```{r }
+preProc <- preProcess(log10(training[,-58]+1),method="pca",pcaComp=2)
+trainPC <- predict(preProc,log10(training[,-58]+1))
+trainPC <- cbind(trainPC,type=training$type)
+modelFit <- train(type ~ PC1 + PC2,method="glm",data=trainPC)
+```
+
+
+
+## Preprocessing with PCA
+
+```{r}
+testPC <- predict(preProc,log10(testing[,-58]+1))
+confusionMatrix(testing$type,predict(modelFit,testPC))
+```
+
+
+
+## Alternative (sets # of PCs)
+
+```{r }
+modelFit <- train(training$type ~ .,method="glm",preProcess="pca",data=training)
+confusionMatrix(testing$type,predict(modelFit,testing))
+```
+
+
+
+
+
+
+## Trees
+
+
