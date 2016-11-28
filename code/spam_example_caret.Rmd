@@ -151,8 +151,8 @@ sd(testCapAveS)
 ## Standardizing - _preProcess_ function
 
 ```{r }
-preObj <- preProcess(training[,-58],method=c("center","scale"))
-trainCapAveS <- predict(preObj,training[,-58])$capitalAve
+preObj <- preProcess(training[,-59],method=c("center","scale"))
+trainCapAveS <- predict(preObj,training[,-59])$capitalAve
 mean(trainCapAveS)
 sd(trainCapAveS)
 ```
@@ -163,7 +163,7 @@ sd(trainCapAveS)
 ## Standardizing - _preProcess_ function
 
 ```{r }
-testCapAveS <- predict(preObj,testing[,-58])$capitalAve
+testCapAveS <- predict(preObj,testing[,-59])$capitalAve
 mean(testCapAveS)
 sd(testCapAveS)
 ```
@@ -174,8 +174,7 @@ sd(testCapAveS)
 
 ```{r }
 set.seed(32343)
-modelFit <- train(type ~.,data=training,
-                  preProcess=c("center","scale"),method="glm")
+modelFit <- train(type ~.,data=training,preProcess=c("center","scale"),method="glm")
 modelFit
 ```
 
@@ -185,8 +184,8 @@ modelFit
 ## Standardizing - Box-Cox transforms
 
 ```{r }
-preObj <- preProcess(training[,-58],method=c("BoxCox"))
-trainCapAveS <- predict(preObj,training[,-58])$capitalAve
+preObj <- preProcess(training[,-59],method=c("BoxCox"))
+trainCapAveS <- predict(preObj,training[,-59])$capitalAve
 par(mfrow=c(1,2)); hist(trainCapAveS); qqnorm(trainCapAveS)
 ```
 
@@ -234,7 +233,7 @@ inTrain <- createDataPartition(y=spam$type,
 training <- spam[inTrain,]
 testing <- spam[-inTrain,]
 
-M <- abs(cor(training[,-58]))
+M <- abs(cor(training[,-59]))
 diag(M) <- 0
 which(M > 0.8,arr.ind=T)
 ```
@@ -272,7 +271,7 @@ prComp$rotation
 
 ```{r }
 typeColor <- ((spam$type=="spam")*1 + 1)
-prComp <- prcomp(log10(spam[,-58]+1))
+prComp <- prcomp(log10(spam[,-59]+1))
 plot(prComp$x[,1],prComp$x[,2],col=typeColor,xlab="PC1",ylab="PC2")
 ```
 
@@ -282,8 +281,8 @@ plot(prComp$x[,1],prComp$x[,2],col=typeColor,xlab="PC1",ylab="PC2")
 ## PCA with caret
 
 ```{r }
-preProc <- preProcess(log10(spam[,-58]+1),method="pca",pcaComp=2)
-spamPC <- predict(preProc,log10(spam[,-58]+1))
+preProc <- preProcess(log10(spam[,-59]+1),method="pca",pcaComp=2)
+spamPC <- predict(preProc,log10(spam[,-59]+1))
 plot(spamPC[,1],spamPC[,2],col=typeColor)
 ```
 
@@ -293,8 +292,8 @@ plot(spamPC[,1],spamPC[,2],col=typeColor)
 ## Preprocessing with PCA
 
 ```{r }
-preProc <- preProcess(log10(training[,-58]+1),method="pca",pcaComp=2)
-trainPC <- predict(preProc,log10(training[,-58]+1))
+preProc <- preProcess(log10(training[,-59]+1),method="pca",pcaComp=2)
+trainPC <- predict(preProc,log10(training[,-59]+1))
 trainPC <- cbind(trainPC,type=training$type)
 modelFit <- train(type ~ PC1 + PC2,method="glm",data=trainPC)
 ```
@@ -313,7 +312,7 @@ confusionMatrix(testing$type,predict(modelFit,testPC))
 ## Alternative (sets # of PCs)
 
 ```{r }
-modelFit <- train(training$type ~ .,method="glm",preProcess="pca",data=training)
+modelFit <- train(type ~ . ,method="glm",preProcess="pca",data=training)
 confusionMatrix(testing$type,predict(modelFit,testing))
 ```
 
@@ -361,6 +360,9 @@ print(modFit$finalModel)
 plot(modFit$finalModel, uniform=TRUE, 
       main="Classification Tree")
 text(modFit$finalModel, use.n=TRUE, all=TRUE, cex=.8)
+
+library(rpart.plot)
+rpart.plot(modFit$finalModel)
 ```
 
 ## Predicting new values
@@ -386,7 +388,8 @@ head(ozone)
 ll <- matrix(NA,nrow=10,ncol=155)
 for(i in 1:10){
   ss <- sample(1:dim(ozone)[1],replace=T)
-  ozone0 <- ozone[ss,]; ozone0 <- ozone0[order(ozone0$ozone),]
+  ozone0 <- ozone[ss,]; 
+  ozone0 <- ozone0[order(ozone0$ozone),]
   loess0 <- loess(temperature ~ ozone,data=ozone0,span=0.2)
   ll[i,] <- predict(loess0,newdata=data.frame(ozone=1:155))
 }
@@ -452,7 +455,7 @@ qplot(Petal.Width,Petal.Length,colour=predRight,data=testing,main="newdata Predi
 ## Variable importance
 
 ```{r}
-varImpPlot(modFit$finalModel)
+  varImpPlot(modFit$finalModel)
 ```
 
 
