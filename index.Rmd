@@ -280,6 +280,7 @@ install_course_github("jtleek", "advdatasci_swirl")
 |Nov 16 | Prediction algorithms | [Slides](https://docs.google.com/presentation/d/120Wer0YimQ3SKqOQ-M-MYf0A0-PqQTohYdUESifj1NQ/edit?usp=sharing) ||
 | Nov 21 | Prediction algorithms | [Slides](https://docs.google.com/presentation/d/120Wer0YimQ3SKqOQ-M-MYf0A0-PqQTohYdUESifj1NQ/edit?usp=sharing) ||
 | Nov 28 | Blending/deep learning | [Slides](https://docs.google.com/presentation/d/1mFjFh0GN7VKCQ6FYVtwgSUrB5FIgYIbu2hoCQbfxvMM/edit?usp=sharing) ||
+| Dec 5 | Simulating Stuff| [Slides](https://docs.google.com/presentation/d/1k_VI0MNDHiGi1B08Y6v7R2VT_WVvSYRvXdFXlkAg-yc/edit?usp=sharing) ||
 <!--
 | 0/1 | Welcome | | [Google Slides](https://docs.google.com/presentation/d/1M64qJM4nWCGSqfoIvFOYTmef7R38qz9XrWvS09qHowQ/edit?usp=sharing) [pdf](lecture_notes/00_01_Welcome.pdf)|   |
 | 0/2 | Version Control and Organization| | [GitHub](http://github.com)| | Install git, create GitHub account |

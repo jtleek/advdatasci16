@@ -1,0 +1,81 @@
+---
+title: "bootstrap"
+output: html_document
+---
+
+## Looking at bootstrap distribution
+
+```{r}
+set.seed(333); x <- rnorm(30)
+bootMean <- rep(NA,1000); sampledMean <- rep(NA,1000)
+for(i in 1:1000){bootMean[i] <- mean(sample(x,replace=TRUE))}
+for(i in 1:1000){sampledMean[i] <- mean(rnorm(30))}
+plot(density(bootMean)); lines(density(sampledMean),col="red")
+```
+
+## Example with boot package
+
+```{r}
+library(boot)
+set.seed(333); x <- rnorm(30); sampledMean <- rep(NA,1000)
+for(i in 1:1000){sampledMean[i] <- mean(rnorm(30))}
+meanFunc <- function(x,i){mean(x[i])}
+bootMean <- boot(x,meanFunc,1000)
+bootMean
+
+```
+
+Now we plot it
+
+```{r}
+plot(density(bootMean$t)); lines(density(sampledMean),col="red")
+```
+
+
+## Bootstrap regression
+
+```{r}
+library(boot); data(nuclear)
+nuke.lm <- lm(log(cost) ~ date,data=nuclear)
+plot(nuclear$date,log(nuclear$cost),pch=19)
+abline(nuke.lm,col="red",lwd=3)
+```
+
+Now bootstrap it
+
+```{r}
+par(mfrow=c(1,3))
+for(i in 1:3){
+  nuclear0 <- nuclear[sample(1:dim(nuclear)[1],replace=TRUE),]
+  nuke.lm0 <- lm(log(cost) ~ date,data=nuclear0)
+  plot(nuclear0$date,log(nuclear0$cost),pch=19)
+  abline(nuke.lm0,col="red",lwd=3)
+}
+```
+
+Bootstrap distribution
+
+```{r}
+bs <- function(data, indices,formula) {
+  d <- data[indices,];fit <- lm(formula, data=d);return(coef(fit)) 
+} 
+results <- boot(data=nuclear, statistic=bs, R=1000, formula=log(cost) ~ date)
+plot(density(results$t[,2]),col="red",lwd=3)
+lines(rep(nuke.lm$coeff[2],10),seq(0,8,length=10),col="blue",lwd=3)
+```
+
+
+
+## Stamps example
+
+```{r}
+library(bootstrap)
+data(stamp)
+plot(density(stamp[,1]))
+```
+
+## Test if there are more than 2 modes?
+
+Can you create a bootstrap hypothesis test that calculates a p-value for their being more than 2 modes. 
+
+
