@@ -32,6 +32,9 @@ plot(density(bootMean$t)); lines(density(sampledMean),col="red")
 ```
 
 
+
+
+
 ## Bootstrap regression
 
 ```{r}
@@ -64,6 +67,127 @@ plot(density(results$t[,2]),col="red",lwd=3)
 lines(rep(nuke.lm$coeff[2],10),seq(0,8,length=10),col="blue",lwd=3)
 ```
 
+
+## modelr example
+
+```{r}
+library(broom)
+library(purrr)
+library(modelr)
+library(tidyr)
+
+pboot <- nuclear %>%
+  bootstrap(1000) %>%
+  mutate(mod = map(strap, ~ lm(log(cost) ~ date,data=.)))  %>%
+  unnest(map(mod, tidy)) %>%
+  filter(term=="date")
+
+plot(density(pboot$estimate),col="red",lwd=3)
+lines(rep(nuke.lm$coeff[2],10),seq(0,8,length=10),col="blue",lwd=3)
+```
+
+
+## A few ways to bootstrap a regression model
+
+### Bootstrapping samples - to get a variance
+
+```{r}
+f1 = formula(log(cost) ~ date)
+lm1 = lm(f1,data=nuclear)
+stat = lm1$coeff[2]
+
+n = dim(nuclear)[1]
+B = 500
+stat0 = rep(0,B)
+
+set.seed(1262016)
+
+for(i in 1:B){
+  nuclear0 = nuclear[sample(1:n,replace=T),]
+  lm0 = lm(f1,data=nuclear0)
+  stat0[i] = lm0$coeff[2]
+}
+hist(stat0)
+abline(v=stat,col="blue")
+```
+
+
+### Bootstrapping residuals - to get a variance
+
+```{r}
+f1 = formula(log(cost) ~ date)
+lm1 = lm(f1,data=nuclear)
+lm_null = lm(log(cost) ~ 1,data=nuclear)
+stat = lm1$coeff[2]
+resid = lm1$residuals
+null_fit = lm_null$fitted.values
+
+n = dim(nuclear)[1]
+B = 500
+stat0 = rep(0,B)
+
+set.seed(1262016)
+
+for(i in 1:B){
+  resid0 = resid[sample(1:n,replace=T)]
+  nuclear$y0 = null_fit + resid0
+  lm0 = lm(y0 ~ date,data=nuclear)
+  stat0[i] = lm0$coeff[2]
+}
+hist(stat0,xlim=c(-0.2,0.3))
+abline(v=stat,col="blue")
+```
+
+
+
+### Bootstrapping residuals parametrically -   to get a variance
+
+```{r}
+f1 = formula(log(cost) ~ date)
+lm1 = lm(f1,data=nuclear)
+stat = lm1$coeff[2]
+resid_sd = sd(lm1$residuals)
+fit = lm1$fitted.values
+
+n = dim(nuclear)[1]
+B = 500
+stat0 = rep(0,B)
+
+set.seed(1262016)
+
+for(i in 1:B){
+  nuclear$y0 = rnorm(n,mean=fit,sd=resid_sd)
+  lm0 = lm(y0 ~ date,data=nuclear)
+  stat0[i] = lm0$coeff[2]
+}
+hist(stat0)
+abline(v=stat,col="blue")
+```
+
+
+### Bootstrapping residuals non-parametrically - to test a hypothesis
+
+```{r}
+f1 = formula(log(cost) ~ date)
+lm1 = lm(f1,data=nuclear)
+stat = lm1$coeff[2]
+resid_sd = sd(lm1$residuals)
+fit = lm1$fitted.values
+
+n = dim(nuclear)[1]
+B = 500
+stat0 = rep(0,B)
+
+set.seed(1262016)
+
+for(i in 1:B){
+  nuclear$y0 = rnorm(n,mean=fit,sd=resid_sd)
+  lm0 = lm(y0 ~ date,data=nuclear)
+  stat0[i] = lm0$coeff[2]
+}
+hist(stat0)
+abline(v=stat,col="blue")
+```
 
 
 ## Stamps example
