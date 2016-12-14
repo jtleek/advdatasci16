@@ -1,0 +1,38 @@
+---
+title: "P-hackathon"
+output: html_document
+---
+
+[P-hacking](https://www.ncbi.nlm.nih.gov/pubmed/22006061) and [the garden of forking paths](http://www.stat.columbia.edu/~gelman/research/unpublished/p_hacking.pdf) are terms that were invented to describe ways in which data analysts can obtain a statistically significant result by changing the way the data are processed. Some examples of potential processing steps that might not be questioned are:
+
+
+* Normalizing data or not
+* Removing outliers or not
+* Creating factor variables or not
+* Adjusting for different sets of covariates
+* Restricting the range of values being considered
+* Data transformations
+* Model choices
+
+To illustrate these concepts we are going to do an exercise that I'm calling a "p-hackathon". We are going to do the p-hackathon with this data set: 
+
+```{r}
+library(NHANES)
+data(NHANES)
+```
+
+Our study is concerned with the association between income (variable name `HHIncomeMid` and gender `Gender`). A simple linear association is: 
+
+```{r}
+tidy(lm(HHIncomeMid ~ Gender ,data=NHANES))
+```
+
+
+
+The rules of the p-hackathon are: 
+
+(1) The goal is to get the tiniest p-value for association possible between the two variables. 
+(2) You can only use any transformation/data change you can justify with plausible statistical reasons. (write them down as you go).
+
+
+

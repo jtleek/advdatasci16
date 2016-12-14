@@ -1,0 +1,172 @@
+---
+title: "high-dim-examples.Rmd"
+output: html_document
+---
+
+
+Load some packages we need
+```{r}
+library(Biobase)
+library(limma)
+library(broom)
+library(genefilter)
+library(qvalue)
+```
+
+
+## Download the data
+
+
+Here we are going to use some data from the paper [Detection of redundant fusion transcripts as biomarkers or disease-specific therapeutic targets in breast cancer.](http://www.ncbi.nlm.nih.gov/pubmed/22496456) that uses data from different normal human tissues (called the Illumina BodyMap data).
+
+```{r}
+con =url("http://bowtie-bio.sourceforge.net/recount/ExpressionSets/bottomly_eset.RData")
+load(file=con)
+close(con)
+bot = bottomly.eset
+pdata=pData(bot)
+edata=as.matrix(exprs(bot))
+fdata = fData(bot)
+ls()
+```
+
+
+## Transform the data
+
+Here we will transform the data and remove lowly expressed genes. 
+
+```{r}
+edata = log2(as.matrix(edata) + 1)
+edata = edata[rowMeans(edata) > 10, ]
+```
+
+
+
+## Fit many regression models at once. 
+
+```{r}
+mod = model.matrix(~ pdata$strain)
+fit = lm.fit(mod,t(edata))
+names(fit)
+```
+
+
+### Compare to output of `lm` 
+
+```{r}
+fit$coefficients[,1]
+tidy(lm(as.numeric(edata[1, ]) ~ pdata$strain))
+```
+
+
+### Look at the coefficients across genes
+
+```{r}
+par(mfrow=c(1,2))
+hist(fit$coefficients[1,],breaks=100,col=2,xlab="Intercept")
+hist(fit$coefficients[2,],breaks=100,col=2,xlab="Strain")
+abline(v=0,lwd=3,col=1)
+```
+
+### Look at the residuals for a couple of genes
+
+```{r}
+par(mfrow=c(1,2))
+plot(fit$residuals[,1],col=2)
+plot(fit$residuals[,2],col=2)
+```
+
+
+### Fit many regressions with an adjustment
+
+```{r}
+mod_adj = model.matrix(~ pdata$strain + as.factor(pdata$lane.number))
+fit_adj = lm.fit(mod_adj,t(edata))
+fit_adj$coefficients[,1]
+```
+
+
+## Fit many regressions with the limma package
+
+```{r}
+fit_limma = lmFit(edata,mod_adj)
+names(fit_limma)
+fit_limma$coefficients[1,]
+fit_adj$coefficients[,1]
+```
+
+
+## Calculate t- or F-statistics rapidly
+
+The `genefilter` package lets you compute statistics rapidly for very simple cases (two or multi-group) comparisons. These are not moderated in any way. 
+
+```{r}
+tstats_obj = rowttests(edata,pdata$strain)
+names(tstats_obj)
+hist(tstats_obj$statistic,col=2)
+```
+
+## Empirical Bayes adjustment
+
+```{r}
+ebayes_limma = eBayes(fit_limma)
+head(ebayes_limma$t)
+```
+
+
+If the model is unadjusted you get the moderated version of the t-statistic
+
+```{r}
+plot(ebayes_limma$t[,2],-tstats_obj$statistic,col=4,
+     xlab="Moderated T-stat",ylab="T-stat")
+abline(c(0,1),col="darkgrey",lwd=3)
+```
+
+
+
+Sometimes we want to compare the null model to the alternative model with some additional covariates. Here we have to know which coefficients we want to test in the alternative model. 
+
+Suppose we wanted to find lane effects then we can fit a limma model and find which coefficients belong to the lane variable.
+
+```{r}
+mod_lane = model.matrix(~ as.factor(pdata$lane.number))
+fit_limma_lane = lmFit(edata,mod_lane)
+ebayes_limma_lane = eBayes(fit_limma_lane) 
+head(ebayes_limma_lane$t)
+```
+
+Then we can get the F-statistics with `topTable`
+
+```{r}
+top_lane = topTable(ebayes_limma_lane, coef=2:7,
+                    number=dim(edata)[1],sort.by="none")
+head(top_lane)
+```
+
+
+## P-values and multiple testing
+
+
+```{r}
+limma_pvals = topTable(ebayes_limma,number=dim(edata)[1])$P.Value
+hist(limma_pvals,col=4)
+```
+
+
+### Adjusted p-values from limma
+
+```{r}
+limma_pvals_adj = topTable(ebayes_limma,number=dim(edata)[1])$adj.P.Val
+hist(limma_pvals_adj,col=2)
+quantile(limma_pvals_adj)
+```
+
+### Direct q-values
+
+```{r}
+qval_limma = qvalue(limma_pvals)
+summary(qval_limma)
+qval_limma$pi0
+```
+
+

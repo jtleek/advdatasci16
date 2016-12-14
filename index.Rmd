@@ -283,6 +283,7 @@ install_course_github("jtleek", "advdatasci_swirl")
 | Dec 5 | Simulating Stuff| [Slides](https://docs.google.com/presentation/d/1k_VI0MNDHiGi1B08Y6v7R2VT_WVvSYRvXdFXlkAg-yc/edit?usp=sharing) ||
 | Dec 7 | More simulating - multiple testing| [Slides](https://docs.google.com/presentation/d/1k_VI0MNDHiGi1B08Y6v7R2VT_WVvSYRvXdFXlkAg-yc/edit?usp=sharing) | [stamps example](https://github.com/jtleek/jhsph753and4/blob/8b7c9fc527b3bd1ec1bf46f0f906d3857243b6d2/lectures/stamps.R)|
 | Dec 12 | Multiple testing/big data | [Slides](https://docs.google.com/presentation/d/1dfxjzDYqESXg2m6qi-l-38upGy8R7BnXKea3xIglT9w/edit?usp=sharing)||
+| Dec 14 | Multiple testing/big data | [Slides](https://docs.google.com/presentation/d/1dfxjzDYqESXg2m6qi-l-38upGy8R7BnXKea3xIglT9w/edit?usp=sharing)| [example]() [p-hackathon]()|
 
 <!--
 | 0/1 | Welcome | | [Google Slides](https://docs.google.com/presentation/d/1M64qJM4nWCGSqfoIvFOYTmef7R38qz9XrWvS09qHowQ/edit?usp=sharing) [pdf](lecture_notes/00_01_Welcome.pdf)|   |
