@@ -103,7 +103,7 @@ The `genefilter` package lets you compute statistics rapidly for very simple cas
 ```{r}
 tstats_obj = rowttests(edata,pdata$strain)
 names(tstats_obj)
-hist(tstats_obj$statistic,col=2)
+hist(tstats_obj$p.value,col=2)
 ```
 
 ## Empirical Bayes adjustment
@@ -130,6 +130,7 @@ Suppose we wanted to find lane effects then we can fit a limma model and find wh
 
 ```{r}
 mod_lane = model.matrix(~ as.factor(pdata$lane.number))
+mod_lane
 fit_limma_lane = lmFit(edata,mod_lane)
 ebayes_limma_lane = eBayes(fit_limma_lane) 
 head(ebayes_limma_lane$t)
