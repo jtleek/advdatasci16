@@ -21,18 +21,40 @@ library(NHANES)
 data(NHANES)
 ```
 
+Before you start analyzing install the matahari R package
+
+```{r}
+devtools::install_github("jhudsl/matahari")
+```
+
+Then run this command to start recording everything you do in R. 
+
+```{r}
+dance_start()
+```
+
 Our study is concerned with the association between income (variable name `HHIncomeMid` and gender `Gender`). A simple linear association is: 
 
 ```{r}
 tidy(lm(HHIncomeMid ~ Gender ,data=NHANES))
 ```
 
-
-
 The rules of the p-hackathon are: 
 
 (1) The goal is to get the tiniest p-value for association possible between the two variables. 
 (2) You can only use any transformation/data change you can justify with plausible statistical reasons. (write them down as you go).
+(3) You must keep track of _everything_ you did
+
+When you have finished hacking and have your final p-value save your model as: 
+
+```{r}
+lm_final = "Your final model goes here" 
+tidy(lm_final)
+dance_stop()
+matahari_history = dance_tbl()
+save(matahari_history,file="lastname_phacking.rda")
+```
+And post your completed rda to the class slack channel. 
 
 
 
